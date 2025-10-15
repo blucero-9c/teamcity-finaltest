@@ -1,6 +1,6 @@
 import unittest
 import os
-from app.webapp import webapp  # adjust path if needed
+from app.webapp import app  # adjust path if needed
 
 
 class TestColorApp(unittest.TestCase):
