@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: cicdcats
+    deploy: canary
+  name: cicdcats-canary
+  namespace: cicdcats
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app: cicdcats
+      deploy: canary
+  template:
+    metadata:
+      labels:
+        app: cicdcats
+        deploy: canary
+    spec:
+      containers:
+        - image: 'cicdcats/cicd-webapp:red'
+          name: cicdcats-webapp
+          ports:
+            - containerPort: 5000
